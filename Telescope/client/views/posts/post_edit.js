@@ -101,7 +101,7 @@ Template[getTemplate('post_edit')].events({
     var properties = {
       title:            $('#title').val(),
       body:             body,
-      categories:       [category]
+      categories:       [$('#url').val()]
     };
 
     // URL
