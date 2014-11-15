@@ -27,7 +27,13 @@
         {{#if categoriesEnabled}}
         <div class="control-group post-form-category">
           <label class="control-label">{{i18n "Categories"}}</label>
-          <div class="controls"><input id="category" type="text" value="{{category}}" /></div>
+          <div class="controls">
+            {{#each categories}}
+            <label class="radio inline">
+              <input id="category_{{_id}}" type="checkbox" value="{{_id}}" name="category" {{checked}} /> {{name}}
+            </label>
+            {{/each}}
+          </div>
         </div>
         {{/if}}
         {{#if isAdmin}}
