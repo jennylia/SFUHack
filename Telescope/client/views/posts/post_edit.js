@@ -2,13 +2,13 @@ Template[getTemplate('post_edit')].helpers({
   created: function(){
     return moment(this.createdAt).format("MMMM Do, h:mm:ss a");
   },
-  // categories: function(){
-  //   var post = this;
-  //   return Categories.find({}, {sort: {order: 1, name: 1}}).map(function(category) {
-  //     category.checked = _.contains(_.pluck(post.categories, '_id'), category._id) ? 'checked' : '';
-  //     return category;
-  //   });
-  // },
+  categories: function(){
+    var post = this;
+    return Categories.find({}, {sort: {order: 1, name: 1}}).map(function(category) {
+      category.checked = _.contains(_.pluck(post.categories, '_id'), category._id) ? 'checked' : '';
+      return category;
+    });
+  },
   categoriesEnabled: function(){
     return Categories.find().count();
   },
@@ -99,7 +99,7 @@ Template[getTemplate('post_edit')].events({
     var properties = {
       title:            $('#title').val(),
       body:             body,
-      categories:       [category]
+      categories:       []
     };
 
     // URL
@@ -114,9 +114,6 @@ Template[getTemplate('post_edit')].events({
     var shortUrl = $('#short-url').val();
     if(!!shortUrl)
         properties.shortUrl = shortUrl;
-
-
-    // Catego
 
     // ------------------------------ Admin Properties ------------------------------ //
 
