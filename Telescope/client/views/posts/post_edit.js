@@ -96,6 +96,8 @@ Template[getTemplate('post_edit')].events({
 
     var body = instance.editor.exportFile();
 
+    var category = $('#category').val(),
+
     var properties = {
       title:            $('#title').val(),
       body:             body,
